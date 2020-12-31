@@ -8,5 +8,13 @@
 
 
 sam = Owner.create(name: "Sam's Snacks")
-sam.machines.create(location: "Don's Mixed Drinks")
-sam.machines.create(location: "Turing Basement")
+machine_1 = sam.machines.create(location: "Don's Mixed Drinks")
+machine_2 = sam.machines.create(location: "Turing Basement")
+
+snack_1 = Snack.create(name: "Cheezit-Grooves", price: 350)
+snack_2 = Snack.create(name: "Cheezit-razorblades", price: 500)
+snack_3 = Snack.create(name: "Cheezit-Smooths", price: 400)
+
+SnackMachine.create(snack: snack_1, machine: machine_1)
+SnackMachine.create(snack: snack_2, machine: machine_1)
+SnackMachine.create(snack: snack_3, machine: machine_1)
