@@ -28,5 +28,17 @@ RSpec.describe Snack, type: :model do
       
       expect(Snack.average_price).to eq(350)
     end
+
+    it '::unique_snack_count' do
+      sam = Owner.create(name: "Sam's Snacks")
+      machine_1 = sam.machines.create(location: "Don's Mixed Drinks")
+  
+      snack_1 = Snack.create(name: "Cheezit-Grooves", price: 350)
+      snack_2 = Snack.create(name: "Cheezit-razorblades", price: 300)
+      snack_3 = Snack.create(name: "Cheezit-Smooths", price: 400)
+      snack_4 = Snack.create(name: "Cheezit-Smooths", price: 1111)
+
+      expect(Snack.unique_snack_count).to eq(3)
+    end
   end 
 end
